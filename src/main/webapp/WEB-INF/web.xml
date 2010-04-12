@@ -6,4 +6,18 @@
 
 	<display-name>ssc</display-name>
 	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>beacon.yslow2</servlet-name>
+		<servlet-class>org.ssc.servlet.beacon.YSlow2</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>beacon.yslow2</servlet-name>
+		<url-pattern>/beacon/yslow2</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
