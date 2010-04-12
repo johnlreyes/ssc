@@ -1,0 +1,3 @@
+execution:
+
+	java -jar ssc-standalone.jar
