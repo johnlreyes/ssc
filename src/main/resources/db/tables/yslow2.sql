@@ -1,0 +1,10 @@
+
+CREATE TABLE yslow2 
+(
+
+  id 			INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT 1)  ,
+  user_agent 	text NOT NULL  ,
+  
+  PRIMARY KEY (id)
+
+)
