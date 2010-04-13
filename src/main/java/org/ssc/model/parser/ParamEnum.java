@@ -2,7 +2,7 @@ package org.ssc.model.parser;
 
 public enum ParamEnum {
 
-	INT ("int"), VARCHAR ("varchar");
+	INT ("int"), FLOAT ("float"), VARCHAR ("varchar");
 	
 	private String value;
 	

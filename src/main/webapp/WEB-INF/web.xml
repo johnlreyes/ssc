@@ -14,6 +14,7 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
+	<!--  
 	<servlet>
 		<servlet-name>beacon.yslow2</servlet-name>
 		<servlet-class>org.ssc.servlet.beacon.YSlow2</servlet-class>
@@ -22,6 +23,18 @@
 	<servlet-mapping>
 		<servlet-name>beacon.yslow2</servlet-name>
 		<url-pattern>/beacon/yslow2</url-pattern>
+	</servlet-mapping>
+	-->
+	
+	
+	<servlet>
+		<servlet-name>pagespeed</servlet-name>
+		<servlet-class>org.ssc.servlet.beacon.PageSpeed</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>pagespeed</servlet-name>
+		<url-pattern>/beacon/pagespeed</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

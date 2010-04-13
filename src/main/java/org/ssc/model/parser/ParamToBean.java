@@ -32,5 +32,15 @@ public class ParamToBean {
 				ex.printStackTrace();
 			}
 		}
+		else if (info[1].compareToIgnoreCase(ParamEnum.FLOAT.toString()) == 0) {
+			try {
+				if (value.compareToIgnoreCase("na")!=0 && value.compareToIgnoreCase("err")!=0) {
+					float floatValue = Float.parseFloat(value);
+					BeanUtils.setProperty(obj, info[0], floatValue);
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 }

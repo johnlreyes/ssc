@@ -2,6 +2,7 @@ package org.ssc.servlet.beacon;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,11 +21,7 @@ abstract class AbstractBeaconServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("[" + getClass().getName() + ":doGet] - START");
-		System.out.println("***********************************************************************");
-		System.out.println(req.getParameterMap().size());
-		System.out.println(req.getAttributeNames().hasMoreElements());
-		System.out.println(req.getAttribute("g"));
-		System.out.println("***********************************************************************");
+		displayRaw(req);
 		String[] uArr = (String[]) req.getParameterMap().get(getParamContext().getUrlKey());
 		System.out.println("uArr="+uArr);
 		if (uArr != null && uArr.length > 0) {
@@ -37,6 +34,17 @@ abstract class AbstractBeaconServlet extends HttpServlet {
 		processBeacon(req);
 		
 		System.out.println("[" + getClass().getName() + ":doGet] - END");
+	}
+	private void displayRaw(HttpServletRequest req) {
+		System.out.println("***********************************************************************");
+		System.out.println("param size="+req.getParameterMap().size());
+		int counter = 1;
+		for (String param : (Set<String>)req.getParameterMap().keySet()) {
+			String value = req.getParameter(param);
+			System.out.println("["+counter+"] "+param+"="+value);
+			counter++;
+		}
+		System.out.println("***********************************************************************");
 	}
 	private void displaySavedUrls() {
 		List<String> url_list = DBUtil.getURLList();
