@@ -1,30 +1,25 @@
 package org.ssc.servlet.beacon;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.ssc.DBUtil;
+import org.ssc.model.YSlow2Model;
+import org.ssc.servlet.beacon.param.ParamContext;
+import org.ssc.servlet.beacon.param.YSlow2Strategy;
 
-public class YSlow2 extends HttpServlet {
+
+public class YSlow2 extends AbstractBeaconServlet {
 
 	private static final long serialVersionUID = 1L;
-
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("[" + getClass().getName() + ":doGet] - START");
-		String[] uArr = (String[]) req.getParameterMap().get("u");
-		if (uArr != null && uArr.length > 1) {
-			String url = uArr[0];
-			System.out.println("url=" + url);
-			DBUtil.addUrl(url);
-		}
-		System.out.println("[" + getClass().getName() + ":doGet] - END");
+	
+	protected ParamContext getParamContext() {
+		return new ParamContext(new YSlow2Strategy());
 	}
-
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doGet(req, resp);
+	
+	protected void processBeacon(HttpServletRequest req) {
+		System.out.println("["+getClass().getName()+":processBeacon] - START");
+		YSlow2Model model = (YSlow2Model)new ParamContext(new YSlow2Strategy()).getBeanObject(req.getParameterMap());
+		System.out.println("model="+model);
+		
+		System.out.println("["+getClass().getName()+":processBeacon] - END");
 	}
 }
