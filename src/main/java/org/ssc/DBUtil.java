@@ -12,6 +12,7 @@ import java.sql.Statement;
 public final class DBUtil {
 
 	private static final String DB_TABLES_URLS_SQL = "/db/tables/urls.sql";
+	private static final String DB_TABLES_YSLOW2 = "/db/tables/yslow2.sql";
 	private static Connection conn = null;
 
 	static {
@@ -52,18 +53,20 @@ public final class DBUtil {
 		try {
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 			conn = DriverManager.getConnection("jdbc:derby:ssc;create=true");
-			prepareTables();
+			prepareTables(DB_TABLES_URLS_SQL);
+			prepareTables(DB_TABLES_YSLOW2);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		System.out.println("["+DBUtil.class.getName()+":createConnection] - END");
 	}
 
-	private static void prepareTables() {
+	private static void prepareTables(String sqlPath) {
 		System.out.println("["+DBUtil.class.getName()+":prepareTables] - START");
 		Statement st = null;
 		try {
-			String urlsSQL = sqlFileToString(DB_TABLES_URLS_SQL);
+			String urlsSQL = sqlFileToString(sqlPath);
+			System.out.println("sqlPath="+sqlPath);
 			System.out.println("urlsSQL="+urlsSQL);
 			st = conn.createStatement();
 			st.execute(urlsSQL);
