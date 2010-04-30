@@ -5,10 +5,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.ssc.model.UrlModel;
+
 public final class DBUtil extends DBBaseUtil {
 
 	
 	public static void addUrl(String url) {
+		System.out.println("["+DBUtil.class.getName()+":addUrl] - START");
 		PreparedStatement psSelect = null;
 		PreparedStatement psInsert = null;
 		try {
@@ -16,12 +19,13 @@ public final class DBUtil extends DBBaseUtil {
 			psSelect.setString(1, url);
 			ResultSet rs = psSelect.executeQuery();
 			rs.next();
-			boolean exist = rs.getInt(1)==0;
-			if (exist) {
+			boolean dontExist = rs.getInt(1)==0;
+			if (dontExist) {
 				psInsert = conn.prepareStatement("INSERT INTO url_list(url) VALUES (?)");
 				psInsert.setString(1, url);
 				psInsert.executeUpdate();
-			}			
+			}	
+			System.out.println("["+DBUtil.class.getName()+":addUrl] ADDED["+dontExist+"] "+url);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
@@ -34,17 +38,20 @@ public final class DBUtil extends DBBaseUtil {
 			} catch (Exception ex) {				
 			}
 		}
+		System.out.println("["+DBUtil.class.getName()+":addUrl] - END");
 	}
 	
-	public static List<String> getURLList() {
-		List<String> returnValue = new ArrayList<String>();
+	public static List<UrlModel> getURLList() {
+		List<UrlModel> returnValue = new ArrayList<UrlModel>();
 		PreparedStatement psSelect = null;
 		try {
-			psSelect = conn.prepareStatement("SELECT url FROM url_list");
+			psSelect = conn.prepareStatement("SELECT id, url FROM url_list");
 			ResultSet rs = psSelect.executeQuery();
 			while (rs.next()) {
-				String url = rs.getString(1);
-				returnValue.add(url);
+				UrlModel model = new UrlModel();
+				model.setId(rs.getInt(1));
+				model.setUrl(rs.getString(2));
+				returnValue.add(model);
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -55,7 +62,5 @@ public final class DBUtil extends DBBaseUtil {
 			}
 		}
 		return returnValue;
-	}
-
-	
+	}	
 }
