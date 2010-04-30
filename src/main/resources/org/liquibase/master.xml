@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+			    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+
+	<include file="org/liquibase/changelog/001.derby.create-table-wt-autoincrement-id.xml"/>
+	
+	
+	<include file="org/liquibase/changelog/002-add-columns.xml"/>
+	<include file="org/liquibase/changelog/003-add-not-null-constraint.xml"/>
+	<include file="org/liquibase/changelog/004-add-default-value.xml"/>
+	<include file="org/liquibase/changelog/005-add-primary-key.xml"/>
+	<include file="org/liquibase/changelog/006-add-unique-constraint.xml"/>
+
+
+</databaseChangeLog>

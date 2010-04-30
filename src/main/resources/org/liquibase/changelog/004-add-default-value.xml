@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+			    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+
+	<preConditions>
+        <dbms type="derby" />
+    </preConditions>
+    
+    
+    <changeSet id="004.url_list" author="john">
+		<addDefaultValue tableName="url_list" columnName="url" defaultValue=""/>		
+	</changeSet>
+	
+	<changeSet id="004.pagespeed" author="john">
+		<addDefaultValue tableName="pagespeed" columnName="timestamp" defaultValue="CURRENT_TIMESTAMP"/>	
+		<addDefaultValue tableName="pagespeed" columnName="url_id" defaultValueNumeric="0"/>	
+		
+		<addDefaultValue tableName="pagespeed" columnName="w" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="o" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="l" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="r" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="t" defaultValueNumeric="0"/>		
+			
+		<addDefaultValue tableName="pagespeed" columnName="pMinifyCSS" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pMinifyJS" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="pOptImgs" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pImgDims" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="pCombineJS" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pBrowserCache" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="pProxyCache" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="pNoCookie" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pParallelDl" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pCssSelect" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pDeferJS" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pGzip" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="pMinRedirect" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pCssExpr" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pMinDns" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pDupeRsrc" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="pScaleImgs" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pMinifyHTML" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pMinimizeRequestSize" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="pOptimizeTheOrderOfStylesAndScripts" defaultValueNumeric="0"/>	
+		<addDefaultValue tableName="pagespeed" columnName="pPutCssInTheDocumentHead" defaultValueNumeric="0"/>		
+		<addDefaultValue tableName="pagespeed" columnName="pSpecifyCharsetEarly" defaultValueNumeric="0"/>						
+	</changeSet>
+	
+	<changeSet id="004.yslow2" author="john">
+		<addDefaultValue tableName="yslow2" columnName="timestamp" defaultValue="CURRENT_TIMESTAMP"/>
+		<addDefaultValue tableName="yslow2" columnName="ip"/>
+		<addDefaultValue tableName="yslow2" columnName="user_agent"/>
+		<addDefaultValue tableName="yslow2" columnName="url_id" defaultValueNumeric="0"/>
+		
+		<addDefaultValue tableName="yslow2" columnName="w" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="o" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="r" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="i"/>
+		<addDefaultValue tableName="yslow2" columnName="lt" defaultValueNumeric="0"/>
+
+		<addDefaultValue tableName="yslow2" columnName="ynumreq" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="ycdn" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yexpires" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="ycompress" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="ycsstop" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yjsbottom" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yexpressions" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yexternal" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="ydns" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yminify" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yredirects" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="ydupes" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yetags" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yxhr" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yxhrmethod" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="ymindom" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yno404" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="ymincookie" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="ycookiefree" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="ynofilter" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yimgnoscale" defaultValueNumeric="0"/>
+		<addDefaultValue tableName="yslow2" columnName="yfavicon" defaultValueNumeric="0"/>
+
+		<addDefaultValue tableName="yslow2" columnName="details"/>
+	</changeSet>
+	
+</databaseChangeLog>	
