@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+			    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+
+	<preConditions>
+        <dbms type="derby" />
+    </preConditions>
+    
+    
+    <changeSet id="002.url_list" author="john">
+		<addColumn tableName="url_list">
+			<column name="url" type="varchar(500)"/>
+		</addColumn>
+	</changeSet>
+	
+	<changeSet id="002.pagespeed" author="john">
+		<addColumn tableName="pagespeed">
+			<column name="timestamp" type="timestamp"/>
+			<column name="ip" type="varchar(20)"/>
+			<column name="user_agent" type="varchar(100)"/>
+			<column name="url_id" type="int"/>
+			
+			<column name="w" type="int"/>
+			<column name="o" type="float"/>
+			<column name="l" type="int"/>
+			<column name="r" type="int"/>
+			<column name="t" type="int"/>
+			<column name="v" type="varchar(500)"/>
+
+			<column name="pMinifyCSS" type="float"/>
+			<column name="pMinifyJS" type="float"/>
+			<column name="pOptImgs" type="float"/>
+			<column name="pImgDims" type="float"/>
+			<column name="pCombineJS" type="float"/>
+			<column name="pCombineCSS" type="float"/>
+			<column name="pBrowserCache" type="float"/>
+			<column name="pProxyCache" type="float"/>
+			<column name="pNoCookie" type="float"/>
+			<column name="pParallelDl" type="float"/>
+			<column name="pCssSelect" type="float"/>
+			<column name="pDeferJS" type="float"/>
+			<column name="pGzip" type="float"/>
+			<column name="pMinRedirect" type="float"/>
+			<column name="pCssExpr" type="float"/>
+			<column name="pMinDns" type="float"/>
+			<column name="pDupeRsrc" type="float"/>
+			<column name="pScaleImgs" type="float"/>
+			<column name="pMinifyHTML" type="float"/>
+			<column name="pMinimizeRequestSize" type="float"/>
+			<column name="pOptimizeTheOrderOfStylesAndScripts" type="float"/>
+			<column name="pPutCssInTheDocumentHead" type="float"/>
+			<column name="pSpecifyCharsetEarly" type="float"/>
+		</addColumn>
+	</changeSet>
+	
+	<changeSet id="002.yslow2" author="john">
+		<addColumn tableName="yslow2">
+			<column name="timestamp" type="timestamp"/>
+			<column name="ip" type="varchar(20)"/>
+			<column name="user_agent" type="varchar(100)"/>
+			<column name="url_id" type="int"/>
+			
+			<column name="w" type="int"/>
+			<column name="o" type="int"/>
+			<column name="r" type="int"/>
+			<column name="i" type="varchar(20)"/>
+			<column name="lt" type="int"/>
+
+			<column name="ynumreq" type="int"/>
+			<column name="ycdn" type="int"/>
+			<column name="yexpires" type="int"/>
+			<column name="ycompress" type="int"/>
+			<column name="ycsstop" type="int"/>
+			<column name="yjsbottom" type="int"/>
+			<column name="yexpressions" type="int"/>
+			<column name="yexternal" type="int"/>
+			<column name="ydns" type="int"/>
+			<column name="yminify" type="int"/>
+			<column name="yredirects" type="int"/>
+			<column name="ydupes" type="int"/>
+			<column name="yetags" type="int"/>
+			<column name="yxhr" type="int"/>
+			<column name="yxhrmethod" type="int"/>
+			<column name="ymindom" type="int"/>
+			<column name="yno404" type="int"/>
+			<column name="ymincookie" type="int"/>
+			<column name="ycookiefree" type="int"/>
+			<column name="ynofilter" type="int"/>
+			<column name="yimgnoscale" type="int"/>
+			<column name="yfavicon" type="int"/>
+
+			<column name="details" type="varchar(500)"/>
+		</addColumn>
+	</changeSet>
+		
+	
+</databaseChangeLog>

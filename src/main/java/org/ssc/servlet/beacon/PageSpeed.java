@@ -16,11 +16,11 @@ public class PageSpeed extends AbstractBeaconServlet {
 		return new ParamContext(new YSlow2Strategy());
 	}
 	
+	@SuppressWarnings("unchecked")
 	protected void processBeacon(HttpServletRequest req) {
 		System.out.println("["+getClass().getName()+":processBeacon] - START");
 		PageSpeedModel model = (PageSpeedModel)new ParamContext(new PageSpeedStrategy()).getBeanObject(req.getParameterMap());
-		System.out.println("model="+model);
-		
+		System.out.println("model="+model);		
 		System.out.println("["+getClass().getName()+":processBeacon] - END");
 	}
 }

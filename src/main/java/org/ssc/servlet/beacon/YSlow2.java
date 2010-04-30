@@ -15,6 +15,7 @@ public class YSlow2 extends AbstractBeaconServlet {
 		return new ParamContext(new YSlow2Strategy());
 	}
 	
+	@SuppressWarnings("unchecked")
 	protected void processBeacon(HttpServletRequest req) {
 		System.out.println("["+getClass().getName()+":processBeacon] - START");
 		YSlow2Model model = (YSlow2Model)new ParamContext(new YSlow2Strategy()).getBeanObject(req.getParameterMap());

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+			    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+
+	<preConditions>
+        <dbms type="derby" />
+    </preConditions>
+    
+    
+    <changeSet id="003.url_list" author="john">
+		<addNotNullConstraint tableName="url_list" columnName="id"/>	
+		<addNotNullConstraint tableName="url_list" columnName="url"/>		
+	</changeSet>
+	
+	<changeSet id="003.pagespeed" author="john">
+		<addNotNullConstraint tableName="pagespeed" columnName="timestamp"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="ip"/>
+		<addNotNullConstraint tableName="pagespeed" columnName="user_agent"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="url_id"/>	
+		
+		<addNotNullConstraint tableName="pagespeed" columnName="w"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="o"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="l"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="r"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="t"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="v"/>
+			
+		<addNotNullConstraint tableName="pagespeed" columnName="pMinifyCSS"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pMinifyJS"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pOptImgs"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pImgDims"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pCombineJS"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pBrowserCache"/>
+		<addNotNullConstraint tableName="pagespeed" columnName="pProxyCache"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pNoCookie"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pParallelDl"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pCssSelect"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pDeferJS"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pGzip"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pMinRedirect"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pCssExpr"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pMinDns"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pDupeRsrc"/>
+		<addNotNullConstraint tableName="pagespeed" columnName="pScaleImgs"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pMinifyHTML"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pMinimizeRequestSize"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pOptimizeTheOrderOfStylesAndScripts"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pPutCssInTheDocumentHead"/>	
+		<addNotNullConstraint tableName="pagespeed" columnName="pSpecifyCharsetEarly"/>					
+	</changeSet>
+	
+	<changeSet id="003.yslow2" author="john">
+		<addNotNullConstraint tableName="yslow2" columnName="timestamp"/>
+		<addNotNullConstraint tableName="yslow2" columnName="ip"/>
+		<addNotNullConstraint tableName="yslow2" columnName="user_agent"/>
+		<addNotNullConstraint tableName="yslow2" columnName="url_id"/>
+		
+		<addNotNullConstraint tableName="yslow2" columnName="w"/>
+		<addNotNullConstraint tableName="yslow2" columnName="o"/>
+		<addNotNullConstraint tableName="yslow2" columnName="r"/>
+		<addNotNullConstraint tableName="yslow2" columnName="i"/>
+		<addNotNullConstraint tableName="yslow2" columnName="lt"/>
+
+		<addNotNullConstraint tableName="yslow2" columnName="ynumreq"/>
+		<addNotNullConstraint tableName="yslow2" columnName="ycdn"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yexpires"/>
+		<addNotNullConstraint tableName="yslow2" columnName="ycompress"/>
+		<addNotNullConstraint tableName="yslow2" columnName="ycsstop"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yjsbottom"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yexpressions"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yexternal"/>
+		<addNotNullConstraint tableName="yslow2" columnName="ydns"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yminify"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yredirects"/>
+		<addNotNullConstraint tableName="yslow2" columnName="ydupes"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yetags"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yxhr"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yxhrmethod"/>
+		<addNotNullConstraint tableName="yslow2" columnName="ymindom"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yno404"/>
+		<addNotNullConstraint tableName="yslow2" columnName="ymincookie"/>
+		<addNotNullConstraint tableName="yslow2" columnName="ycookiefree"/>
+		<addNotNullConstraint tableName="yslow2" columnName="ynofilter"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yimgnoscale"/>
+		<addNotNullConstraint tableName="yslow2" columnName="yfavicon"/>
+
+		<addNotNullConstraint tableName="yslow2" columnName="details"/>
+	</changeSet>
+	
+</databaseChangeLog>	
