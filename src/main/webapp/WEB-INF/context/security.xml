@@ -16,7 +16,7 @@
         <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />        
         
 		<security:intercept-url pattern="/beacon/pagespeed.do" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<security:intercept-url pattern="/beacon/yslow2.do" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/json/scoresummary.do" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		
         <security:intercept-url pattern="/**" access="ROLE_USER" />
     </security:http>

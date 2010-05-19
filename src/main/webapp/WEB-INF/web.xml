@@ -81,12 +81,12 @@
 	
 	
 	<servlet>
-		<servlet-name>pagespeed</servlet-name>
+		<servlet-name>controllers</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-    	<servlet-name>pagespeed</servlet-name>
+    	<servlet-name>controllers</servlet-name>
     	<url-pattern>*.do</url-pattern>
  	</servlet-mapping>
 	

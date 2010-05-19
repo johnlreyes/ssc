@@ -15,4 +15,6 @@ public interface UrlDao {
 	void update(UrlModel model);
 	
 	List<UrlModel> getAll();
-}
+	
+	boolean exist(String url);
+} 

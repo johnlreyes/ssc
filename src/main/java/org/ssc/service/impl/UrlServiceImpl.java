@@ -13,15 +13,16 @@ public class UrlServiceImpl implements UrlService {
 
 	@Autowired
 	private UrlDao urlDao;
-	
-	
+
 	@Override
 	public List<UrlModel> getAllUrl() {
 		return urlDao.getAll();
-	}	
-	
+	}
+
 	@Override
 	public void addUrl(UrlModel model) {
-		urlDao.save(model);
+		if (urlDao.exist(model.getUrl()) == false) {
+			urlDao.save(model);
+		}
 	}
 }

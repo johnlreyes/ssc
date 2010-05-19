@@ -1,4 +1,5 @@
 Ext.onReady(function(){
+ 
 	Ext.BLANK_IMAGE_URL = 'js/extjs/resources/images/default/s.gif';
 	Ext.QuickTips.init();
 	
@@ -8,32 +9,24 @@ Ext.onReady(function(){
 		renderTo: document.body,
 		items: [northComponent, westComponent ,centerComponent, eastComponent, southComponent]
 	}); 
-
+ 
 });
 
 
+var myReader = new Ext.data.JsonReader({
+			root: 'rows',
+			fields: [
+				{name: 'url'},
+				{name: 'score'},
+				{name: 'last30days'},
+				{name: 'passing'},
+				{name: 'lastanalysis'}
+			]
+		});
 
 var store = new Ext.data.GroupingStore({
-	url: 'movies.json',
-	sortInfo: {
-		field: 'genre', 
-		direction: "ASC"
-	},
-	groupField: 'genre',
-	reader: new Ext.data.JsonReader({
-		root:'rows',
-		id:'id'
-	}, [
-		'id',
-		'coverthumb',
-		'title',
-		'director',
-		{name: 'released', type: 'date', dateFormat: 'Y-m-d'},
-		'genre',
-		'tagline',
-		{name: 'price', type: 'float'},
-		{name: 'available', type: 'bool'}
-	])
+	url: 'json/scoresummary.do',
+	reader: myReader
 });
 
 store.load();
@@ -59,8 +52,8 @@ var centerComponent = {
 		store: store,
 		autoExpandColumn: 'url',
 		columns: [
-			{header: "URL",  id: 'url', sortable: true},
-			{header: "Score", sortable: true, width: 100},
+			{header: "URL",  id: 'url'},
+			{header: "Score", width: 100},
 			{header: "Last 30 Days", width: 100},
 			{header: "Passing", width: 100},
 			{header: "Last Analysis", width: 100}
