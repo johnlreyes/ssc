@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE web-app 
-    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" 
-    "http://java.sun.com/dtd/web-app_2_3.dtd">
-
-<web-app>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xmlns="http://java.sun.com/xml/ns/javaee" 
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+                             http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+	     id="WebApp_ID" version="2.5">
 
 	<icon></icon>	
 	<display-name>ssc</display-name>
@@ -14,7 +14,60 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
-	<!--  
+	
+	<!-- ******************************************************************************************** -->
+	<!-- START Spring Configurations -->
+	<!-- ******************************************************************************************** -->
+	
+	<context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>
+      		/WEB-INF/context/application.xml
+			/WEB-INF/context/security.xml
+		</param-value>
+  	</context-param>
+	
+	<filter>
+    	<filter-name>springSecurityFilterChain</filter-name>
+    	<filter-class>
+    		org.springframework.web.filter.DelegatingFilterProxy
+    	</filter-class>
+  	</filter>
+  	
+  	<filter-mapping>
+    	<filter-name>springSecurityFilterChain</filter-name>
+    	<url-pattern>/*</url-pattern>
+  	</filter-mapping>
+  	
+	
+	<filter>
+        <filter-name>encoding-filter</filter-name>
+        <filter-class>
+            org.springframework.web.filter.CharacterEncodingFilter
+        </filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+  
+    <filter-mapping>
+        <filter-name>encoding-filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    	  -->
+  	<listener>
+  		<listener-class>
+  			org.springframework.web.context.ContextLoaderListener
+  		</listener-class>
+  	</listener>
+		
+	<!-- ******************************************************************************************** -->
+	<!-- END Spring Configurations -->
+	<!-- ******************************************************************************************** -->
+	
+	
+	<!--
 	<servlet>
 		<servlet-name>beacon.yslow2</servlet-name>
 		<servlet-class>org.ssc.servlet.beacon.YSlow2</servlet-class>
@@ -29,12 +82,12 @@
 	
 	<servlet>
 		<servlet-name>pagespeed</servlet-name>
-		<servlet-class>org.ssc.servlet.beacon.PageSpeed</servlet-class>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
-		<servlet-name>pagespeed</servlet-name>
-		<url-pattern>/beacon/pagespeed</url-pattern>
-	</servlet-mapping>
+    	<servlet-name>pagespeed</servlet-name>
+    	<url-pattern>*.do</url-pattern>
+ 	</servlet-mapping>
 	
 </web-app>

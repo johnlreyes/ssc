@@ -1,4 +1,4 @@
-package org.ssc.servlet.beacon.param;
+package org.ssc.controller.beacon.param;
 
 import java.util.Map;
 

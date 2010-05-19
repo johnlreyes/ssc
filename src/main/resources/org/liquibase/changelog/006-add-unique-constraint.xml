@@ -11,11 +11,11 @@
     </preConditions>
     
     
-    
+    <!--
 	<changeSet id="006.url_list" author="john">
 		<addUniqueConstraint tableName="url_list" columnNames="url" constraintName="unique_url"/>
 	</changeSet>
-	
+	-->
 	
 	
 	

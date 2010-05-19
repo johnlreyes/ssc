@@ -13,7 +13,7 @@
     
     <changeSet id="002.url_list" author="john">
 		<addColumn tableName="url_list">
-			<column name="url" type="varchar(500)"/>
+			<column name="url" type="TEXT"/>
 		</addColumn>
 	</changeSet>
 	

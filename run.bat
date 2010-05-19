@@ -1,0 +1,1 @@
+mvn clean compile && mvn package && java -jar target\ssc-standalone.jar
