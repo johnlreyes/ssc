@@ -1,0 +1,12 @@
+<table cellspacing='0px'>
+    <thead>
+    <tr>
+        <% for(var attr in SSC.Models.Result.attributes){%>
+	        <th><%= attr%> </th>    
+        <%}%>
+    </tr>
+    </thead>
+    <tbody>
+        <%= view('views/result/list',{results: results})%>
+    </tbody>
+</table>
