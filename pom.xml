@@ -14,7 +14,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.springframework.version>3.0.5.RELEASE</org.springframework.version>
-        <net.sf.json-lib.version>2.2.1</net.sf.json-lib.version>
+        <net.sf.json-lib.version>2.4</net.sf.json-lib.version>
         <javax.servlet.version>2.5</javax.servlet.version>
         <commons-beanutils.version>1.8.3</commons-beanutils.version>
         <commons-logging.version>1.1.1</commons-logging.version>
