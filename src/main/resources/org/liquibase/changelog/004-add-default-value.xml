@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-	xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
-			    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
-
+     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
 	<preConditions>
         <dbms type="derby" />
@@ -51,14 +50,14 @@
 	
 	<changeSet id="004.yslow2" author="john">
 		<addDefaultValue tableName="yslow2" columnName="timestamp" defaultValue="CURRENT_TIMESTAMP"/>
-		<addDefaultValue tableName="yslow2" columnName="ip"/>
-		<addDefaultValue tableName="yslow2" columnName="user_agent"/>
+		<addDefaultValue tableName="yslow2" columnName="ip" defaultValue=""/>
+		<addDefaultValue tableName="yslow2" columnName="user_agent" defaultValue=""/>
 		<addDefaultValue tableName="yslow2" columnName="url_id" defaultValueNumeric="0"/>
 		
 		<addDefaultValue tableName="yslow2" columnName="w" defaultValueNumeric="0"/>
 		<addDefaultValue tableName="yslow2" columnName="o" defaultValueNumeric="0"/>
 		<addDefaultValue tableName="yslow2" columnName="r" defaultValueNumeric="0"/>
-		<addDefaultValue tableName="yslow2" columnName="i"/>
+		<addDefaultValue tableName="yslow2" columnName="i" defaultValue=""/>
 		<addDefaultValue tableName="yslow2" columnName="lt" defaultValueNumeric="0"/>
 
 		<addDefaultValue tableName="yslow2" columnName="ynumreq" defaultValueNumeric="0"/>
@@ -84,7 +83,7 @@
 		<addDefaultValue tableName="yslow2" columnName="yimgnoscale" defaultValueNumeric="0"/>
 		<addDefaultValue tableName="yslow2" columnName="yfavicon" defaultValueNumeric="0"/>
 
-		<addDefaultValue tableName="yslow2" columnName="details"/>
+		<addDefaultValue tableName="yslow2" columnName="details" defaultValue=""/>
 	</changeSet>
 	
 </databaseChangeLog>	

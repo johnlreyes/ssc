@@ -1,68 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-    http://www.springframework.org/schema/context 
-    http://www.springframework.org/schema/context/spring-context-2.5.xsd
-    http://www.springframework.org/schema/aop 
-    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
- http://www.springframework.org/schema/tx 
- http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
- 
-	 
-	
-	<!--  Automatically mount injection  -->
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
 	<context:component-scan base-package="*" />
-	
-	
-	
+
 	<bean 	id="txManager" 
 			class="org.springframework.orm.jpa.JpaTransactionManager"
 			p:entityManagerFactory-ref="entityManagerFactory" />
 			
 	<tx:annotation-driven transaction-manager="txManager"/>
 
-	
-	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"> -->
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" ><!-- destroy-method="close"> -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
         <property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver" />
         <property name="url" value="jdbc:derby:database/ssc" />
         <property name="username" value="" />
         <property name="password" value="" />
-        <!--  
-        <property name="acquireIncrement" value="3" />
-        <property name="minPoolSize" value="20" />
-        <property name="maxPoolSize" value="50" />
-        <property name="maxStatementsPerConnection" value="50" />
-        <property name="automaticTestTable" value="c3p0_test_table" />
-        <property name="numHelperThreads" value="20" />
-        -->
     </bean>
-	
+
+	<context:load-time-weaver weaver-class="org.springframework.instrument.classloading.SimpleLoadTimeWeaver"/>
+
 	<bean 	id="entityManagerFactory" 
 			class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 			p:dataSource-ref="dataSource" 
 			p:jpaVendorAdapter-ref="jpaAdapter">
-		<property name="loadTimeWeaver">
-			<bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
-		</property>
-	</bean>
+    </bean>
 
 	<bean 	id="jpaAdapter" 
-			class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+			class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter"
 			p:database="DERBY" 
 			p:showSql="true" />
-			
-
 
 	<context:annotation-config/>
-	
-	
+
 	<bean id="urlDao" class="org.ssc.dao.impl.jpa.UrlDaoImpl"/>
 	<bean id="urlService" class="org.ssc.service.impl.UrlServiceImpl"/>	
 
-	
 </beans>

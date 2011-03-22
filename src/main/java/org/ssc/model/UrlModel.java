@@ -7,16 +7,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
-
 @Entity
 @Table (name="url_list")
-public @Data class UrlModel {
+public  class UrlModel {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;	
 	
 	@Column (name="url")
-	private String url;	
+	private String url;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

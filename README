@@ -1,8 +1,13 @@
-execution:
+winstone:
 
-	> mvn clean compile 
-	> mvn package
-	
+	> mvn clean compile package
+	> mvn liquibase:update
 	> java -jar target\ssc-standalone.jar
-	
 	> browse http://localhost:8080
+
+jetty:
+
+	> mvn clean compile package
+	> mvn liquibase:update
+	> mvn jetty:run
+	> browse http://localhost:8080/ssc

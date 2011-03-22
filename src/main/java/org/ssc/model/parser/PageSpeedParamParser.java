@@ -49,5 +49,4 @@ public class PageSpeedParamParser {
 		ParamToBean.parse(returnValue, paramMap, PARAM_INFO);
 		return returnValue;
 	}
-
 }

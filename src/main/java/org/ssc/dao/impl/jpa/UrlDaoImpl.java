@@ -40,7 +40,7 @@ public class UrlDaoImpl implements UrlDao {
 	public List<UrlModel> getAll() {
 		List<UrlModel> returnValue = new ArrayList<UrlModel>();
 		try {
-			returnValue.addAll(this.entityManager.createQuery("FROM UrlModel um").getResultList());
+			returnValue.addAll(this.entityManager.createQuery("SELECT um FROM UrlModel um").getResultList());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

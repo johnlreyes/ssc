@@ -44,5 +44,4 @@ public class YSlow2ParamParser {
 		ParamToBean.parse(returnValue, paramMap, PARAM_INFO);
 		return returnValue;
 	}
-
 }
