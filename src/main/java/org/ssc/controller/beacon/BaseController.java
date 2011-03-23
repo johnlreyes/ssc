@@ -24,7 +24,6 @@ abstract public class BaseController implements Controller {
 	abstract protected void processBeacon(HttpServletRequest req);
 
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("[" + getClass().getName() + ":handleRequest] - START");
 		processBeacon(request);
 		String[] uArr = (String[]) request.getParameterMap().get(getParamContext().getUrlKey());
 		if (uArr != null && uArr.length > 0) {
@@ -34,19 +33,16 @@ abstract public class BaseController implements Controller {
 			urlService.addUrl(model);
 		}
 		displaySavedUrls();
-		System.out.println("[" + getClass().getName() + ":handleRequest] - END");
 		return null;
 	}
 	
 	private void displaySavedUrls() {
-		System.out.println("["+getClass().getName()+":displaySavedUrls] - START");
 		List<UrlModel> url_list = urlService.getAllUrl();
 		int counter = 1;
 		for (UrlModel u: url_list) {
 			System.out.println("["+counter+"] "+u.getId()+"-"+u.getUrl());
 			counter ++;
 		}
-		System.out.println("["+getClass().getName()+":displaySavedUrls] - END");
 	}
 
 	public UrlService getUrlService() {

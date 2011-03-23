@@ -20,6 +20,10 @@
         <commons-logging.version>1.1.1</commons-logging.version>
         <org.eclipse.persistence.version>2.0.0</org.eclipse.persistence.version>
         <org.apache.derby.version>10.7.1.1</org.apache.derby.version>
+        <org.aspectj.version>1.6.10</org.aspectj.version>
+        <slf4j.version>1.4.2</slf4j.version>
+		<log4j.version>1.2.15</log4j.version>
+        <cglib.version>2.1_3</cglib.version>
     </properties>
 
     <dependencies>
@@ -95,6 +99,45 @@
             <artifactId>derby</artifactId>
             <version>${org.apache.derby.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${org.aspectj.version}</version>
+        </dependency>
+        <dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectj.version}</version>
+		</dependency>
+        <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+        <dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>${cglib.version}</version>
+		</dependency>
     </dependencies>
 
 
@@ -164,6 +207,7 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <!--
             <build>
                 <plugins>
                     <plugin>
@@ -187,6 +231,7 @@
                     </plugin>
                 </plugins>
             </build>
+            -->
         </profile>
     </profiles>
 

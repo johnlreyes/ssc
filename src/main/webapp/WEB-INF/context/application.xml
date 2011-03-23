@@ -16,6 +16,9 @@
         http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
 	<context:component-scan base-package="*" />
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <bean id="traceAspect" class="org.ssc.aop.TraceAspect"/>
 
 	<bean 	id="txManager" 
 			class="org.springframework.orm.jpa.JpaTransactionManager"
@@ -46,6 +49,7 @@
 	<context:annotation-config/>
 
 	<bean id="urlDao" class="org.ssc.dao.impl.jpa.UrlDaoImpl"/>
-	<bean id="urlService" class="org.ssc.service.impl.UrlServiceImpl"/>	
+	<bean id="urlService" class="org.ssc.service.impl.UrlServiceImpl"/>
+
 
 </beans>
